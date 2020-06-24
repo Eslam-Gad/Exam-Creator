@@ -1,0 +1,38 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory app:title="Personalization">
+
+        <EditTextPreference
+            app:key="signature_key"
+            app:title="@string/signature_title"
+            android:defaultValue="Dr. somename"
+            app:useSimpleSummaryProvider="true"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="Customization">
+
+        <ListPreference
+            android:key="univ_key"
+            android:entryValues="@array/univ_values"
+            app:entries="@array/univ_entries"
+            app:useSimpleSummaryProvider="true"
+            android:title="University">
+        </ListPreference>
+
+        <ListPreference
+            android:key="faculty_key"
+            android:entryValues="@array/faculty_values"
+            app:entries="@array/faculty_entries"
+            app:useSimpleSummaryProvider="true"
+            android:title="Faculty">
+        </ListPreference>
+
+            <EditTextPreference
+                app:key="dept_key"
+                app:title="Department"
+                app:useSimpleSummaryProvider="true"/>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

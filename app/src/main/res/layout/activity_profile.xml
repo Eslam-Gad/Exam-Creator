@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="#fff"
+android:orientation="vertical"
+tools:context=".Activities.ProfileActivity">
+
+<LinearLayout
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="5dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginBottom="30dp"
+    android:background="@drawable/border_profile"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/img_university"
+            android:layout_width="110dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:tooltipText="Edit faculty logo"
+            android:layout_marginBottom="5dp"
+            app:srcCompat="@drawable/university" />
+
+  <FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/img_faculty"
+            android:layout_width="110dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:tooltipText="Edit univ Logo"
+            app:srcCompat="@drawable/university" />
+</FrameLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:id="@+id/universityidprofile"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:fontFamily="@font/brandon_medium"
+        android:gravity="center"
+        android:hint="University "
+        android:textColor="#0F87E6"
+        android:textColorHint="#0F87E6"
+        android:textColorLink="#0F87E6"
+        android:textSize="25dp"
+        tools:layout_editor_absoluteX="114dp"
+        tools:layout_editor_absoluteY="147dp" />
+
+    <TextView
+        android:id="@+id/facultyidprofile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="@font/brandon_medium"
+        android:gravity="center"
+        android:hint="Faculty"
+        android:textColor="#0F87E6"
+        android:textColorHint="#0F87E6"
+        android:textColorLink="#0F87E6"
+        android:textSize="25dp"
+        tools:layout_editor_absoluteX="-8dp"
+        tools:layout_editor_absoluteY="222dp" />
+</LinearLayout>
+
+<TextView
+    android:id="@+id/doctoridprofile"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:layout_margin="10dp"
+    android:background="@drawable/border_profile"
+    android:fontFamily="@font/productsansbold"
+    android:gravity="center"
+    android:hint="Doctor Name"
+    android:textColor="#0F87E6"
+    android:textColorHint="#0F87E6"
+    android:textColorLink="#0F87E6"
+    android:textSize="25dp" />
+
+<TextView
+    android:id="@+id/departidprofile"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginBottom="10dp"
+    android:background="@drawable/border_profile"
+    android:fontFamily="@font/productsansbold"
+    android:gravity="center|center_horizontal|center_vertical"
+    android:hint="Department"
+    android:textColor="#0F87E6"
+    android:textColorHint="#0F87E6"
+    android:textColorLink="#0F87E6"
+    android:textSize="22dp" />
+
+
+</LinearLayout>

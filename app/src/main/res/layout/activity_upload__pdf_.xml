@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+    android:background="#fff"
+tools:context=".Upload_Pdf.Upload_Pdf_Activity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select Pdf To Upload"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:shadowDx="10"
+        android:shadowDy="10"
+        android:shadowRadius="15"
+        android:shadowColor="#9DCBF3"
+        android:layout_marginTop="20dp"
+        android:textAlignment="center"
+        android:gravity="center_horizontal"
+        android:textColor="#2196f3"/>
+
+
+<EditText
+    android:id="@+id/editTextPDF"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="Enter PDF Name"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint=" upload your Exam in PDF format, Max allowed size: 5M.\n
+click to download, long click to delete."/>
+
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        app:cardElevation="5dp">
+
+        <com.balysv.materialripple.MaterialRippleLayout
+            android:id="@+id/ripple2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/Ripple_Style_Blue">
+
+            <Button
+                android:id="@+id/buttonUploadPDF"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/upload_button_background"
+                android:text="UPLOAD"
+                android:elevation="20dp"
+                android:textColor="#2196f3"
+                android:textSize="20sp"/>
+
+        </com.balysv.materialripple.MaterialRippleLayout>
+    </androidx.cardview.widget.CardView>
+
+<ListView
+    android:layout_marginTop="25dp"
+    android:id="@+id/myListViewPDF"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"/>
+
+</LinearLayout>

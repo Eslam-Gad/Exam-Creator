@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#fff"
+    android:id="@+id/root"
+    tools:context=".Activities.RegisterationActivity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Registeration!"
+                android:textSize="40sp"
+                android:textStyle="bold"
+                android:shadowDx="10"
+                android:shadowDy="10"
+                android:shadowRadius="15"
+                android:shadowColor="#9DCBF3"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:textColor="#2196f3"/>
+            <EditText
+                android:inputType="textCapWords|textCapSentences"
+                android:id="@+id/RG_Name"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:hint="Full Name"
+                android:layout_marginTop="40dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"/>
+
+            <EditText
+                android:id="@+id/RG_Email"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="92dp"
+                tools:layout_editor_absoluteY="248dp"
+                app:passwordToggleEnabled="true">
+            <EditText
+                android:id="@+id/RG_Password"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="92dp"
+                tools:layout_editor_absoluteY="248dp"
+                app:passwordToggleEnabled="true">
+            <EditText
+                android:id="@+id/RG_Confirm"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:hint="Confirm Password"
+                android:inputType="textPassword"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"/>
+
+</com.google.android.material.textfield.TextInputLayout>
+            <Button
+                android:id="@+id/LoginButton"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="#fff"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginTop="40dp"
+                android:onClick="registerToFirebaseAuth"
+                android:layout_marginBottom="10dp"
+                android:text="Register"
+                android:textColor="#2196f3"
+                android:textSize="20sp"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:title="quiz Exam"
+        android:orderInCategory="100"></item>
+
+    <item
+        android:title="Midterm Exam"
+        android:orderInCategory="100"></item>
+
+    <item
+        android:title="Final Exam"
+        android:orderInCategory="100"></item>
+
+</menu>

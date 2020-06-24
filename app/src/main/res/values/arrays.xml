@@ -1,0 +1,95 @@
+<resources>
+    <!-- Reply Preference -->
+
+    <string-array name="faculty_entries">
+        <item>Faculty of Engineering</item>
+        <item>Faculty of Medicine</item>
+        <item>Faculty of Computers and Artificial Intelligence</item>
+        <item>Faculty of Pharmacy</item>
+        <item>Faculty of Agriculture</item>
+        <item>Faculty of Science</item>
+        <item>Faculty of Economics and Political Science</item>
+        <item>Faculty of Mass Communication</item>
+        <item>Faculty of Archaeology</item>
+        <item>Faculty of Arts</item>
+        <item>Faculty of Commerce</item>
+        <item>Faculty of Nursing</item>
+        <item>Faculty of Law</item>
+        <item>Faculty of Veterinary Medicine</item>
+        <item>Faculty of Dar El-Ulum</item>
+        <item>Faculty of Education For Early Childhood</item>
+        <item>Faculty of Graduate Studies for Statistical Research</item>
+    </string-array>
+
+    <string-array name="faculty_values">
+        <item>Engineering</item>
+        <item>Medicine</item>
+        <item>Computers and Artificial Intelligence</item>
+        <item>Pharmacy</item>
+        <item>Agriculture</item>
+        <item>Science</item>
+        <item>Economics</item>
+        <item>Mass Communication</item>
+        <item>Archaeology</item>
+        <item>Arts</item>
+        <item>Commerce</item>
+        <item>Nursing</item>
+        <item>Law</item>
+        <item>Veterinary Medicine</item>
+        <item>Dar El-Ulum</item>
+        <item>Education For Early Childhood</item>
+        <item>Graduate Studies for Statistical Research</item>
+    </string-array>
+
+    <string-array name="univ_entries">
+        <item>Ain Shams University</item>
+        <item>Al-Azhar University</item>
+        <item>Alexandria University</item>
+        <item>Assiut University</item>
+        <item>Aswan University</item>
+        <item>Banha University</item>
+        <item>Beni-Suef University</item>
+        <item>Cairo University</item>
+        <item>Damanhour University</item>
+        <item>Damietta University</item>
+        <item>Fayoum University</item>
+        <item>Helwan University</item>
+        <item>Mansoura University</item>
+        <item>Minia University</item>
+        <item>Minufiya University</item>
+        <item>Port Said University</item>
+        <item>Sohag University</item>
+        <item>South Valley University</item>
+        <item>Suez Canal University</item>
+        <item>Suez University</item>
+        <item>Tanta University</item>
+        <item>Zagazig University</item>
+    </string-array>
+
+    <string-array name="univ_values">
+        <item>Ain Shams</item>
+        <item>Al-Azhar</item>
+        <item>Alexandria</item>
+        <item>Assiut</item>
+        <item>Aswan</item>
+        <item>Banha</item>
+        <item>Beni-Suef</item>
+        <item>Cairo</item>
+        <item>Damanhour</item>
+        <item>Damietta</item>
+        <item>Fayoum</item>
+        <item>Helwan</item>
+        <item>Mansoura</item>
+        <item>Minia</item>
+        <item>Minufiya</item>
+        <item>Port Said</item>
+        <item>Sohag</item>
+        <item>South Valley</item>
+        <item>Suez Canal</item>
+        <item>Suez</item>
+        <item>Tanta</item>
+        <item>Zagazig</item>
+    </string-array>
+
+
+</resources>

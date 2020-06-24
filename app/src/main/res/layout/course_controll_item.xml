@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/courseName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Course Name"
+        android:textSize="22dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginLeft="7dp"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"></TextView>
+
+    <TextView
+        android:id="@+id/courseCode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Course Code"
+        android:layout_marginStart="7dp"
+        android:layout_marginLeft="7dp"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"></TextView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/add_chapter"
+            android:textAllCaps="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="7dp"
+            android:layout_marginLeft="7dp"
+            android:elevation="5dp"
+            android:text="Add Chapter"
+            android:background="@color/Blue"
+            android:textColor="@color/button_text_color"
+            android:padding="5dp"></Button>
+
+        <Button
+            android:id="@+id/editCourseName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="7dp"
+            android:layout_marginLeft="7dp"
+            android:text="Edit"
+            android:textAllCaps="false"
+            android:background="@color/Blue"
+            android:elevation="5dp"
+            android:textColor="@color/button_text_color"></Button>
+
+        <Button
+            android:id="@+id/deleteCourse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="7dp"
+            android:layout_marginLeft="7dp"
+            android:textAllCaps="false"
+            android:elevation="5dp"
+            android:text="Delete"
+            android:background="@color/Blue"
+            android:textColor="@color/button_text_color"></Button>
+
+    </LinearLayout>
+
+    <View
+        android:layout_marginTop="10dp"
+        android:id="@+id/divider2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/cardview_dark_background" />
+
+</LinearLayout>

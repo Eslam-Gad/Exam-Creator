@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Exam Creator</string>
+    <string name="chapter">Chapter</string>
+    <string name="subject_name">Subject Name</string>
+
+    <string name="EslamGadInfo">Eslam Gad\nAndroid Developer\nemail: eslamhendy990@gmail.com\nPhN. +20-01121498102</string>
+    <string name="AhmedAbdoInfo">Ahmed Abdo Ali\nAndroid Developer\nemail: Ahmedabdo12377@gmail.com\nPhN. +20-01205155483</string>
+    <string name="WalidInfo">Walid Ahmed\nAndroid Developer\nemail: Walidahmed589@gmail.com\nPhN. +20-01017145303</string>
+
+
+    <string-array name="Type_of_Exam">
+        <item>Final Exam</item>
+        <item>Midterm Exam</item>
+        <item>quiz</item>
+    </string-array>
+
+
+    <string name="title_activity_settings">Settings</string>
+
+
+    <!-- Preferences -->
+    <string name="signature_title">Your signature, this signature will be in the created exam format</string>
+
+</resources>

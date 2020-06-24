@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add New Course"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:id="@+id/name"></TextView>
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/sub_name"
+        android:ems="10"
+        android:layout_marginTop="10dp"
+        android:hint="Course Name"
+        android:inputType="textCapWords|textCapSentences">
+        <requestFocus/>
+        </EditText>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/sub_code"
+        android:ems="10"
+        android:layout_marginTop="10dp"
+        android:hint="Course Code"
+        android:inputType="text"></EditText>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/save"
+        android:layout_marginTop="10dp"
+        android:text="Save"
+        android:textColor="@android:color/white"
+        android:background="@color/colorAccent"
+        ></Button>
+
+</LinearLayout>

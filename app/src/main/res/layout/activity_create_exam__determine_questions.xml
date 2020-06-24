@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#ffffff"
+    tools:context=".Activities.CreateExam_DetermineQuestions">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+
+            <TextView
+                android:id="@+id/avalable_q"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/productsansregular"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:text="Available questions: 0"
+                android:textColor="#000000"/>
+
+
+            <TableLayout
+                android:id="@+id/table"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:layout_marginHorizontal="10dp"
+                android:background="@color/colorPrimaryDark">
+                <TableRow>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Easy"
+                        android:textStyle="bold"
+                        android:layout_weight="1"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Medium"
+                        android:textStyle="bold"
+                        android:layout_weight="1"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Hard"
+                        android:textStyle="bold"
+                        android:layout_weight="1"
+                        android:gravity="center"/>
+
+                </TableRow>
+
+                <TableRow>
+                    <TextView
+                        android:id="@+id/easy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="0"
+                        android:gravity="center"
+                        android:background="#ffffff"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginHorizontal="1dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/medium"
+                        android:text="0"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:background="#ffffff"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginBottom="1dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/hard"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:background="#ffffff"
+                        android:layout_marginRight="1dp"
+                        android:text="0"
+
+                        android:layout_marginBottom="1dp"/>
+
+                </TableRow>
+
+            </TableLayout>
+
+            <View
+                android:layout_marginTop="10dp"
+                android:id="@+id/divider2"
+                android:layout_width="match_parent"
+                android:layout_height="0.6dp"
+                android:background="@color/cardview_dark_background" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/productsansregular"
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="10dp"
+                android:text="Pls fill the the next required fields to create your exam !"/>
+
+            <EditText
+                android:id="@+id/to_eas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/productsansregular"
+                android:gravity="center"
+                android:layout_marginTop="15dp"
+                android:layout_marginHorizontal="10dp"
+                android:inputType="number"
+                android:hint="Easy question"
+                android:textColor="#000000"/>
+            <EditText
+                android:id="@+id/to_med"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/productsansregular"
+                android:gravity="center"
+                android:layout_marginTop="15dp"
+                android:layout_marginHorizontal="10dp"
+                android:inputType="number"
+                android:hint="Medium questions"
+                android:textColor="#000000"/>
+            <EditText
+                android:id="@+id/tot_ha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/productsansregular"
+                android:gravity="center"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="15dp"
+                android:inputType="number"
+                android:hint="Hard questions"
+                android:textColor="#000000"/>
+            <EditText
+                android:id="@+id/tot_deg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/productsansregular"
+                android:gravity="center"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="15dp"
+                android:inputType="number"
+                android:hint="Total degrees"
+                android:textColor="#000000"/>
+
+            <Button
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="15dp"
+                android:background="@color/blue_btn_bg_color"
+                android:text="Exam Type"
+                android:onClick="listpopu"
+                android:id="@+id/popMenu">
+            </Button>
+
+            <Button
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="15dp"
+                android:background="@color/blue_btn_bg_color"
+                android:text="Exam Time"
+                android:onClick="listpoputime"
+                android:id="@+id/popMenutime">
+            </Button>
+
+            <DatePicker
+                android:id="@+id/dpicker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:datePickerMode="spinner"
+                android:calendarViewShown="false">
+            </DatePicker>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_marginBottom="15dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_create_pdf"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_margin="12dp"
+                    android:background="@color/colorPrimaryDark"
+                    android:text="Create"></Button>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
