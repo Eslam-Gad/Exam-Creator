@@ -28,6 +28,15 @@
                 android:layout_marginTop="40dp"
                 android:gravity="center"
                 android:textColor="#2196f3"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="92dp"
+                app:counterEnabled="true"
+                app:counterMaxLength="25"
+                tools:layout_editor_absoluteY="248dp">
             <EditText
                 android:inputType="textCapWords|textCapSentences"
                 android:id="@+id/RG_Name"
@@ -37,6 +46,7 @@
                 android:layout_marginTop="40dp"
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="40dp"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
             <EditText
                 android:id="@+id/RG_Email"
