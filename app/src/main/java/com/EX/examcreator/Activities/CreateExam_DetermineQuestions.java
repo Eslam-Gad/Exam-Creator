@@ -23,6 +23,7 @@ import android.widget.EditText;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.EX.examcreator.Models.ChapterModel;
 import com.EX.examcreator.Models.CousesModel;
 import com.EX.examcreator.Models.Question;
@@ -69,10 +70,11 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
+
 import es.dmoral.toasty.Toasty;
 
 
-public class CreateExam_DetermineQuestions extends AppCompatActivity  {
+public class CreateExam_DetermineQuestions extends AppCompatActivity {
 
     ArrayList<ChapterModel> listOfChapters;
     CousesModel Course;
@@ -86,46 +88,46 @@ public class CreateExam_DetermineQuestions extends AppCompatActivity  {
 
     Set<Question> total_question;
 
-    String dr_name ;
+    String dr_name;
     String university;
     String faculty;
     String department;
     String total_degrees;
-    String exam_time ;
+    String exam_time;
     String exam_type;
-    int selectedYear ;
-    int selectedMonth ;
-    int selectedDay ;
-    String exam_date ;
+    int selectedYear;
+    int selectedMonth;
+    int selectedDay;
+    String exam_date;
 
-    EditText  total_easy , total_medium ,total_hard ,total_degree;
-    TextView available_questiions,hardt,medt,easyt;
+    EditText total_easy, total_medium, total_hard, total_degree;
+    TextView available_questiions, hardt, medt, easyt;
     Button time, exam;
     DatePicker datePicker;
     Button btn_create_pdf;
 
-    int hard , medium ,easy;
+    int hard, medium, easy;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_exam__determine_questions);
-        btn_create_pdf=findViewById(R.id.btn_create_pdf);
+        btn_create_pdf = findViewById(R.id.btn_create_pdf);
 
-        available_questiions = (TextView)findViewById(R.id.avalable_q) ;
-        easyt = (TextView)findViewById(R.id.easy) ;
-        medt = (TextView)findViewById(R.id.medium) ;
-        hardt = (TextView)findViewById(R.id.hard) ;
-        total_easy = (EditText)findViewById(R.id.to_eas);
-        total_medium = (EditText)findViewById(R.id.to_med);
-        total_hard = (EditText)findViewById(R.id.tot_ha);
-        total_degree = (EditText)findViewById(R.id.tot_deg);
-        exam = (Button)findViewById(R.id.popMenu);
-        time = (Button)findViewById(R.id.popMenutime);
-        datePicker = (DatePicker)findViewById(R.id.dpicker);
+        available_questiions = (TextView) findViewById(R.id.avalable_q);
+        easyt = (TextView) findViewById(R.id.easy);
+        medt = (TextView) findViewById(R.id.medium);
+        hardt = (TextView) findViewById(R.id.hard);
+        total_easy = (EditText) findViewById(R.id.to_eas);
+        total_medium = (EditText) findViewById(R.id.to_med);
+        total_hard = (EditText) findViewById(R.id.tot_ha);
+        total_degree = (EditText) findViewById(R.id.tot_deg);
+        exam = (Button) findViewById(R.id.popMenu);
+        time = (Button) findViewById(R.id.popMenutime);
+        datePicker = (DatePicker) findViewById(R.id.dpicker);
 
-        listOfChapters=new ArrayList<>();
-        listOfChapters=this.getIntent().getExtras().getParcelableArrayList("checkedChapters");
+        listOfChapters = new ArrayList<>();
+        listOfChapters = this.getIntent().getExtras().getParcelableArrayList("checkedChapters");
         Course = this.getIntent().getExtras().getParcelable("Course_choosing");
 
         databaseCources = FirebaseDatabase.getInstance().getReference("questions").child(Course.getId());
@@ -165,7 +167,7 @@ public class CreateExam_DetermineQuestions extends AppCompatActivity  {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.home_icon , menu);
+        getMenuInflater().inflate(R.menu.home_icon, menu);
         return true;
     }
 
@@ -174,7 +176,7 @@ public class CreateExam_DetermineQuestions extends AppCompatActivity  {
 
         if (item.getItemId() == R.id.home_ic) {
 
-            Intent intent = new Intent(CreateExam_DetermineQuestions.this , HomeActivity.class);
+            Intent intent = new Intent(CreateExam_DetermineQuestions.this, HomeActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         }
@@ -191,9 +193,9 @@ public class CreateExam_DetermineQuestions extends AppCompatActivity  {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                for(DataSnapshot node : dataSnapshot.getChildren()){
-                    for(ChapterModel chapterModel : listOfChapters){
-                        if(node.getKey().equals(chapterModel.getId())){
+                for (DataSnapshot node : dataSnapshot.getChildren()) {
+                    for (ChapterModel chapterModel : listOfChapters) {
+                        if (node.getKey().equals(chapterModel.getId())) {
                             databaseQuestions = FirebaseDatabase.getInstance().getReference("questions").
                                     child(Course.getId()).child(node.getKey());
                             databaseQuestions.addValueEventListener(new ValueEventListener() {
@@ -202,26 +204,25 @@ public class CreateExam_DetermineQuestions extends AppCompatActivity  {
 
                                     for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                                         Question question = dataSnapshot1.getValue(Question.class);
-                                        if(question.getDifficulty().equals("1"))
-                                        {
+                                        if (question.getDifficulty().equals("1")) {
                                             easy++;
                                             questionsListEasy.add(question);
 
 
-                                        }else if(question.getDifficulty().equals("2"))  {
+                                        } else if (question.getDifficulty().equals("2")) {
                                             medium++;
                                             questionsListMedium.add(question);
 
-                                        } else if(question.getDifficulty().equals("3"))  {
+                                        } else if (question.getDifficulty().equals("3")) {
                                             hard++;
                                             questionsListHard.add(question);
                                         }
 
-                                        final int size = easy+medium+hard;
-                                        hardt.setText(hard+"");
-                                        easyt.setText(easy+"");
-                                        medt.setText(medium+"");
-                                        available_questiions.setText("Available questions: "+size);
+                                        final int size = easy + medium + hard;
+                                        hardt.setText(hard + "");
+                                        easyt.setText(easy + "");
+                                        medt.setText(medium + "");
+                                        available_questiions.setText("Available questions: " + size);
 
 
                                         total_easy.addTextChangedListener(new TextWatcher() {
@@ -240,6 +241,7 @@ public class CreateExam_DetermineQuestions extends AppCompatActivity  {
                                                     }
                                                 }
                                             }
+
                                             @Override
                                             public void afterTextChanged(Editable s) {
                                             }
@@ -261,6 +263,7 @@ public class CreateExam_DetermineQuestions extends AppCompatActivity  {
                                                     }
                                                 }
                                             }
+
                                             @Override
                                             public void afterTextChanged(Editable s) {
                                             }
@@ -282,6 +285,7 @@ public class CreateExam_DetermineQuestions extends AppCompatActivity  {
                                                     }
                                                 }
                                             }
+
                                             @Override
                                             public void afterTextChanged(Editable s) {
                                             }
@@ -311,12 +315,12 @@ public class CreateExam_DetermineQuestions extends AppCompatActivity  {
 
     public void listpopu(final View view) {
 
-        PopupMenu popupMenu = new PopupMenu(this , view);
-        popupMenu.getMenuInflater().inflate(R.menu.list_exam , popupMenu.getMenu());
+        PopupMenu popupMenu = new PopupMenu(this, view);
+        popupMenu.getMenuInflater().inflate(R.menu.list_exam, popupMenu.getMenu());
         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                ((Button)view).setText(item.getTitle());
+                ((Button) view).setText(item.getTitle());
                 return true;
             }
         });
@@ -324,12 +328,12 @@ public class CreateExam_DetermineQuestions extends AppCompatActivity  {
     }
 
     public void listpoputime(final View view) {
-        PopupMenu popupMenu = new PopupMenu(this , view);
-        popupMenu.getMenuInflater().inflate(R.menu.list_time , popupMenu.getMenu());
+        PopupMenu popupMenu = new PopupMenu(this, view);
+        popupMenu.getMenuInflater().inflate(R.menu.list_time, popupMenu.getMenu());
         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                ((Button)view).setText(item.getTitle());
+                ((Button) view).setText(item.getTitle());
                 return true;
             }
         });
@@ -342,7 +346,7 @@ public class CreateExam_DetermineQuestions extends AppCompatActivity  {
 
         /* ---- get all data to pass to PDF (Date, Time, Dr_name, questions, Faculty, University, Department, Total degrees, Exam type)*/
 
-        if(!TextUtils.isEmpty(total_degree.getText().toString()) &&
+        if (!TextUtils.isEmpty(total_degree.getText().toString()) &&
                 !exam.getText().toString().equals("Exam Type") &&
                 !time.getText().toString().equals("Exam Time")) {
 
@@ -357,25 +361,25 @@ public class CreateExam_DetermineQuestions extends AppCompatActivity  {
             exam_type = exam.getText().toString();
             selectedYear = datePicker.getYear();
             selectedMonth = datePicker.getMonth();
-            selectedDay =  datePicker.getDayOfMonth();
-            exam_date = selectedDay+"/"+selectedMonth+"/"+selectedYear;
+            selectedDay = datePicker.getDayOfMonth();
+            exam_date = selectedDay + "/" + selectedMonth + "/" + selectedYear;
 
-            int hardWanted = 0 , easyWanted = 0 , mediumWanted = 0 , total = 0;
+            int hardWanted = 0, easyWanted = 0, mediumWanted = 0, total = 0;
 
-            if(!TextUtils.isEmpty(total_easy.getText())){
+            if (!TextUtils.isEmpty(total_easy.getText())) {
                 easyWanted = Integer.parseInt(total_easy.getText().toString());
             }
 
-            if(!TextUtils.isEmpty(total_medium.getText())){
+            if (!TextUtils.isEmpty(total_medium.getText())) {
                 mediumWanted = Integer.parseInt(total_medium.getText().toString());
             }
 
-            if(!TextUtils.isEmpty(total_hard.getText())){
+            if (!TextUtils.isEmpty(total_hard.getText())) {
                 hardWanted = Integer.parseInt(total_hard.getText().toString());
             }
 
 
-            if(total != (easyWanted + hardWanted + mediumWanted) && total != 0){
+            if (total != (easyWanted + hardWanted + mediumWanted) && total != 0) {
                 Toasty.info(CreateExam_DetermineQuestions.this, "total should be the sum of easy, medium and hard!!", Toast.LENGTH_LONG, true).show();
                 return;
             }
@@ -388,19 +392,18 @@ public class CreateExam_DetermineQuestions extends AppCompatActivity  {
             Set<Question> question_hardSet = new HashSet<>();  // hard_questions
 
 
-
-            while (question_easySet.size() != easyWanted){
-                int randam_easy = (int)(Math.random()*easy);
+            while (question_easySet.size() != easyWanted) {
+                int randam_easy = (int) (Math.random() * easy);
                 question_easySet.add(questionsListEasy.get(randam_easy));
             }
 
-            while (question_mediumSet.size() != mediumWanted){
-                int randam_med = (int)(Math.random()*medium);
+            while (question_mediumSet.size() != mediumWanted) {
+                int randam_med = (int) (Math.random() * medium);
                 question_mediumSet.add(questionsListMedium.get(randam_med));
             }
 
-            while (question_hardSet.size() != hardWanted){
-                int randam_hard = (int)(Math.random()*hard);
+            while (question_hardSet.size() != hardWanted) {
+                int randam_hard = (int) (Math.random() * hard);
                 question_hardSet.add(questionsListHard.get(randam_hard));
             }
 
@@ -415,7 +418,7 @@ public class CreateExam_DetermineQuestions extends AppCompatActivity  {
 
             /* PDF Code : you will find  all data that you want */
 
-            creatPDFFile(CommonPdf.getApppath(CreateExam_DetermineQuestions.this)+"test_pdf.pdf");
+            creatPDFFile(CommonPdf.getApppath(CreateExam_DetermineQuestions.this) + "test_pdf.pdf");
 
             /*
              * ========
@@ -426,7 +429,7 @@ public class CreateExam_DetermineQuestions extends AppCompatActivity  {
             /*------------- PDF Code ----------------*/
 
 
-        }else {
+        } else {
             Toasty.info(CreateExam_DetermineQuestions.this, "Pls: all fields required !!", Toast.LENGTH_LONG, true).show();
         }
 
@@ -436,21 +439,18 @@ public class CreateExam_DetermineQuestions extends AppCompatActivity  {
 //-----------------------------------------------------------------------------------
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-    private void creatPDFFile(String path)
-    {
-        if(new File(path).exists())
+    private void creatPDFFile(String path) {
+        if (new File(path).exists())
             new File(path).delete();
-        try
-        {
-            Document document=new Document();
-            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
-        {
-            Toast.makeText(this, "Not Support Android 'Q'", Toast.LENGTH_LONG).show();
-            return;
-        }
+        try {
+            Document document = new Document();
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                Toast.makeText(this, "Not Support Android 'Q'", Toast.LENGTH_LONG).show();
+                return;
+            }
 
             //Save
-            PdfWriter.getInstance(document,new FileOutputStream(path));
+            PdfWriter.getInstance(document, new FileOutputStream(path));
 
             //Open
             document.open();
@@ -462,6 +462,7 @@ public class CreateExam_DetermineQuestions extends AppCompatActivity  {
             document.addAuthor("Exam Creator");
             document.addCreator("Exam Creator Team");
 
+
 //            document.add(new Image() {
 //                @Override
 //                public void setUrl(URL url) {
@@ -471,35 +472,35 @@ public class CreateExam_DetermineQuestions extends AppCompatActivity  {
 
 
             //Font Setting
-            BaseColor colorAccent=new BaseColor(0,153,204,255);
-            float fontsize=20.0f;
-            float valueFontSize =26.0f;
+            BaseColor colorAccent = new BaseColor(0, 153, 204, 255);
+            float fontsize = 20.0f;
+            float valueFontSize = 26.0f;
 
 
             //Custom font
-            BaseFont fontName=BaseFont.createFont("assets/fonts/brandon_medium.otf","UTF-8",BaseFont.EMBEDDED);
+            BaseFont fontName = BaseFont.createFont("assets/fonts/brandon_medium.otf", "UTF-8", BaseFont.EMBEDDED);
 
 //----------------------------------------------------------------------------------------------------------------------------
             //Create Tite PDF
-            Font titlefont= new Font(fontName,29.0f,Font.NORMAL,BaseColor.BLACK);
+            Font titlefont = new Font(fontName, 29.0f, Font.NORMAL, BaseColor.BLACK);
 
-            Font ftitle= new Font(fontName,27.0f,Font.NORMAL,BaseColor.BLACK);
-            Font orederNumberValueFont= new Font(fontName,valueFontSize,Font.NORMAL,BaseColor.BLACK);
+            Font ftitle = new Font(fontName, 27.0f, Font.NORMAL, BaseColor.BLACK);
+            Font orederNumberValueFont = new Font(fontName, valueFontSize, Font.NORMAL, BaseColor.BLACK);
 
-            addNewItem(document,university+" University", Element.ALIGN_CENTER,titlefont);
-            addNewItem(document,"Faculty of "+faculty, Element.ALIGN_CENTER,ftitle);
-            addNewItem(document,exam_type+" "+selectedYear, Element.ALIGN_CENTER,titlefont);
+            addNewItem(document, university + " University", Element.ALIGN_CENTER, titlefont);
+            addNewItem(document, "Faculty of " + faculty, Element.ALIGN_CENTER, ftitle);
+            addNewItem(document, exam_type + " " + selectedYear, Element.ALIGN_CENTER, titlefont);
 
 //----------------------------------------------------------------------------------------------------------------------------
 
 
-            addNewItemWithLeftAndRight(document,"Doctor:"+dr_name,"Data:"+exam_date,ftitle,ftitle);
-            addNewItemWithLeftAndRight(document,"Course:"+Course.getCoursesName(),"Time:"+exam_time,ftitle,ftitle);
-            addNewItemWithLeftAndRight(document,"Department:"+department,"Grade:"+total_degrees,ftitle,ftitle);
+            addNewItemWithLeftAndRight(document, "Doctor:" + dr_name, "Data:" + exam_date, ftitle, ftitle);
+            addNewItemWithLeftAndRight(document, "Course:" + Course.getCoursesName(), "Time:" + exam_time, ftitle, ftitle);
+            addNewItemWithLeftAndRight(document, "Department:" + department, "Grade:" + total_degrees, ftitle, ftitle);
             addLineSpace(document);
             addLineSperator(document);
             //-------------------------------------------------------------------------------------------------------------------------
-            addNewItem(document,"Choose the Correct Answer:\n(One Mark for Each Part)", Element.ALIGN_LEFT,ftitle);
+            addNewItem(document, "Choose the Correct Answer:\n(One Mark for Each Part)", Element.ALIGN_LEFT, ftitle);
             addLineSpace(document);
             addLineSpace(document);
 
@@ -507,16 +508,16 @@ public class CreateExam_DetermineQuestions extends AppCompatActivity  {
 
             int i = 1;
 
-            for (Question question:total_question) {
+            for (Question question : total_question) {
 
-                addNewItem(document,"("+i+") "+question.getQuestionHead(), Element.ALIGN_LEFT,titlefont);
+                addNewItem(document, "(" + i + ") " + question.getQuestionHead(), Element.ALIGN_LEFT, titlefont);
 
                 addLineSpace(document);
 
-                addNewItem(document,"A) "+question.getChooseOne(),Element.ALIGN_LEFT,orederNumberValueFont);
-                addNewItem(document,"B) "+question.getChooseSecond(),Element.ALIGN_LEFT,orederNumberValueFont);
-                addNewItem(document,"C) "+question.getChooseThird(),Element.ALIGN_LEFT,orederNumberValueFont);
-                addNewItem(document,"D) "+question.getChoosefourth(),Element.ALIGN_LEFT,orederNumberValueFont);
+                addNewItem(document, "A) " + question.getChooseOne(), Element.ALIGN_LEFT, orederNumberValueFont);
+                addNewItem(document, "B) " + question.getChooseSecond(), Element.ALIGN_LEFT, orederNumberValueFont);
+                addNewItem(document, "C) " + question.getChooseThird(), Element.ALIGN_LEFT, orederNumberValueFont);
+                addNewItem(document, "D) " + question.getChoosefourth(), Element.ALIGN_LEFT, orederNumberValueFont);
 
                 addLineSpace(document);
                 addLineSperator(document);
@@ -526,7 +527,28 @@ public class CreateExam_DetermineQuestions extends AppCompatActivity  {
 
 //--------------------------------------------------------------------------------------------------------------------------
             addLineSpace(document);
-            addNewItem(document,"Best Wishes", Element.ALIGN_CENTER,titlefont);
+            addNewItem(document, "Best Wishes", Element.ALIGN_CENTER, titlefont);
+            addLineSpace(document);
+            addLineSpace(document);
+            addNewItem(document, "Dr : "+dr_name, Element.ALIGN_CENTER, titlefont);
+
+
+            document.newPage();
+            addNewItem(document, Course.getCoursesName() + " Exam Answers " + exam_date, Element.ALIGN_LEFT, titlefont);
+            addLineSpace(document);
+            addLineSpace(document);
+
+            int answerCounter=1;
+
+            for (Question question : total_question) {
+
+                addNewItem(document, "(" + answerCounter + ") " + " : " + question.getRightanswer(), Element.ALIGN_LEFT, titlefont);
+
+                addLineSpace(document);
+
+                answerCounter++;
+            }
+
 
 //--------------------------------------------------------------------------------------------------------------------------
   /*          //add More
@@ -579,8 +601,6 @@ public class CreateExam_DetermineQuestions extends AppCompatActivity  {
             printPDF();
 
 
-
-
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             Toast.makeText(this, "Success1", Toast.LENGTH_SHORT).show();
@@ -597,46 +617,50 @@ public class CreateExam_DetermineQuestions extends AppCompatActivity  {
 
 
     }
+
     //----------------------------------------------------------------------------------------------------
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     private void printPDF() {
-        PrintManager printManager=(PrintManager)getSystemService(Context.PRINT_SERVICE);
-        try{
-            PrintDocumentAdapter printDocumentAdapter=new pdfDocumentAdapter(CreateExam_DetermineQuestions.this, CommonPdf.getApppath(CreateExam_DetermineQuestions.this)+"test_pdf.pdf");
-            printManager.print("Document",printDocumentAdapter,new PrintAttributes.Builder().build());
-        }catch(Exception ex)
-        {
-            Log.e("EDMTDev",""+ex.getMessage());
+        PrintManager printManager = (PrintManager) getSystemService(Context.PRINT_SERVICE);
+        try {
+            PrintDocumentAdapter printDocumentAdapter = new pdfDocumentAdapter(CreateExam_DetermineQuestions.this, CommonPdf.getApppath(CreateExam_DetermineQuestions.this) + "test_pdf.pdf");
+            printManager.print("Document", printDocumentAdapter, new PrintAttributes.Builder().build());
+        } catch (Exception ex) {
+            Log.e("EDMTDev", "" + ex.getMessage());
         }
     }
-    //------------------------------------------------------------------------------------------------------
-    private void addNewItemWithLeftAndRight(Document document, String textLeft, String textRight, Font textLeftFont,Font textRightFont) throws DocumentException {
 
-        Chunk chunkTextLeft =new Chunk(textLeft,textLeftFont);
-        Chunk chunkTextRight=new Chunk(textRight,textRightFont);
-        Paragraph p=new Paragraph(chunkTextLeft);
+    //------------------------------------------------------------------------------------------------------
+    private void addNewItemWithLeftAndRight(Document document, String textLeft, String textRight, Font textLeftFont, Font textRightFont) throws DocumentException {
+
+        Chunk chunkTextLeft = new Chunk(textLeft, textLeftFont);
+        Chunk chunkTextRight = new Chunk(textRight, textRightFont);
+        Paragraph p = new Paragraph(chunkTextLeft);
         p.add(new Chunk(new VerticalPositionMark()));
         p.add(chunkTextRight);
         document.add(p);
     }
+
     //---------------------------------------------------------------------------------------------------------
     private void addLineSperator(Document document) throws DocumentException {
 
-        LineSeparator lineSeparator=new LineSeparator();
-        lineSeparator.setLineColor(new BaseColor(0,0,0,68));
+        LineSeparator lineSeparator = new LineSeparator();
+        lineSeparator.setLineColor(new BaseColor(0, 0, 0, 68));
         addLineSpace(document);
         document.add(new Chunk(lineSeparator));
         addLineSpace(document);
     }
+
     //--------------------------------------------------------------------------------------------------------------
     private void addLineSpace(Document document) throws DocumentException {
         document.add(new Paragraph(""));
 
     }
+
     //-----------------------------------------------------------------------------
     private void addNewItem(Document document, String text, int align, Font font) throws DocumentException {
-        Chunk chunk=new Chunk(text,font);
-        Paragraph paragraph=new Paragraph(chunk);
+        Chunk chunk = new Chunk(text, font);
+        Paragraph paragraph = new Paragraph(chunk);
         paragraph.setAlignment(align);
         document.add(paragraph);
     }
