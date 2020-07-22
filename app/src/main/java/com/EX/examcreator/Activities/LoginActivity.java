@@ -31,7 +31,7 @@ public class LoginActivity extends AppCompatActivity {
 
     FirebaseAuth mAuth;
 
-     AlertDialog dialog;
+    AlertDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

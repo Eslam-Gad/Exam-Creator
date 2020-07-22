@@ -61,6 +61,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -125,6 +126,13 @@ public class CreateExam_DetermineQuestions extends AppCompatActivity {
         exam = (Button) findViewById(R.id.popMenu);
         time = (Button) findViewById(R.id.popMenutime);
         datePicker = (DatePicker) findViewById(R.id.dpicker);
+
+
+        // prevent datapicker frpm select previeus date
+        Calendar today = Calendar.getInstance();
+        long now = today.getTimeInMillis();
+        datePicker.setMinDate(now);
+
 
         listOfChapters = new ArrayList<>();
         listOfChapters = this.getIntent().getExtras().getParcelableArrayList("checkedChapters");
@@ -360,7 +368,7 @@ public class CreateExam_DetermineQuestions extends AppCompatActivity {
             exam_time = time.getText().toString();
             exam_type = exam.getText().toString();
             selectedYear = datePicker.getYear();
-            selectedMonth = datePicker.getMonth();
+            selectedMonth = datePicker.getMonth() + 1;
             selectedDay = datePicker.getDayOfMonth();
             exam_date = selectedDay + "/" + selectedMonth + "/" + selectedYear;
 
@@ -530,7 +538,7 @@ public class CreateExam_DetermineQuestions extends AppCompatActivity {
             addNewItem(document, "Best Wishes", Element.ALIGN_CENTER, titlefont);
             addLineSpace(document);
             addLineSpace(document);
-            addNewItem(document, "Dr : "+dr_name, Element.ALIGN_CENTER, titlefont);
+            addNewItem(document, "Dr : " + dr_name, Element.ALIGN_CENTER, titlefont);
 
 
             document.newPage();
@@ -538,7 +546,7 @@ public class CreateExam_DetermineQuestions extends AppCompatActivity {
             addLineSpace(document);
             addLineSpace(document);
 
-            int answerCounter=1;
+            int answerCounter = 1;
 
             for (Question question : total_question) {
 
